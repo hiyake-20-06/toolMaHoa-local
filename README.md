@@ -6,13 +6,23 @@ Ban build san cho Windows, **khong can cai Python**.
 
 ## Tai va chay (Windows)
 
-1. Tai repo (Code > Download ZIP) hoac clone:
-   ```
-   git clone <URL-repo-cua-ban>
-   ```
-2. Neu tai ZIP thi giai nen ra mot thu muc.
-3. Giu nguyen `ToolMaHoa.exe` va thu muc `_internal` nam canh nhau.
-4. Double-click `ToolMaHoa.exe` de mo giao dien.
+**Cach 1 — Tai file ZIP phat hanh (de nhat):**
+
+1. Vao trang Releases: https://github.com/hiyake-20-06/toolMaHoa-local/releases
+2. Tai file `ToolMaHoa-v1.0.0-win64.zip` moi nhat.
+3. Giai nen ra mot thu muc.
+4. Giu nguyen `ToolMaHoa.exe` va thu muc `_internal` nam canh nhau, roi double-click `ToolMaHoa.exe`.
+
+**Cach 2 — Clone repo:**
+
+```bash
+git clone https://github.com/hiyake-20-06/toolMaHoa-local.git
+cd toolMaHoa-local
+```
+
+Hoac tai truc tiep: https://github.com/hiyake-20-06/toolMaHoa-local/archive/refs/heads/main.zip
+
+Sau do mo `ToolMaHoa.exe` trong thu muc vua tai.
 
 > Luu y: Windows SmartScreen hoac antivirus co the canh bao vi file EXE khong duoc ky so.
 > Chon **More info > Run anyway** (hoac **Allow**) de tiep tuc.
