@@ -1,2 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Build artifacts / binaries
+*.exe binary
+*.dll binary
+*.pyd binary
+*.pyc binary
+*.zip binary
+
+# Runtime resources bundled by PyInstaller: keep bytes exactly as built
+_internal/** -text

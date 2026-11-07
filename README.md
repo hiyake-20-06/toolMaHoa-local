@@ -1,0 +1,66 @@
+# Tool Ma Hoa (Crypto Toolkit)
+
+Cong cu truc quan hoa ma hoa co dien — ho tro nhieu loai ma, giai thich tung buoc va chuc nang crack.
+
+Ban build san cho Windows, **khong can cai Python**.
+
+## Tai va chay (Windows)
+
+1. Tai repo (Code > Download ZIP) hoac clone:
+   ```
+   git clone <URL-repo-cua-ban>
+   ```
+2. Neu tai ZIP thi giai nen ra mot thu muc.
+3. Giu nguyen `ToolMaHoa.exe` va thu muc `_internal` nam canh nhau.
+4. Double-click `ToolMaHoa.exe` de mo giao dien.
+
+> Luu y: Windows SmartScreen hoac antivirus co the canh bao vi file EXE khong duoc ky so.
+> Chon **More info > Run anyway** (hoac **Allow**) de tiep tuc.
+
+## Cau truc thu muc
+
+```
+ToolMaHoa/
+├─ ToolMaHoa.exe     # chuong trinh chinh (GUI)
+├─ _internal/        # runtime Python + Tk, BAT BUOC phai giu
+├─ README.md
+├─ .gitignore
+└─ .gitattributes
+```
+
+Khong duoc di chuyen `ToolMaHoa.exe` ra khoi thu muc hoac xoa `_internal`, neu khong tool se khong chay.
+
+## Cac he ma ho tro
+
+| Ma | Cong thuc / Nguyen ly |
+|---|---|
+| Affine | E(x) = (a*x + b) mod 26 |
+| Thay the (Substitution) | Bang 26 chu cai tuy y |
+| Caesar | E(x) = (x + shift) mod 26 |
+| Vigenere | E(x) = (x + k[i]) mod 26, tu khoa lap lai |
+| Playfair | Bang 5x5, ma hoa tung cap ky tu |
+| Hill | [y] = K * [x] mod 26 (ma tran 2x2) |
+
+## Tinh nang
+
+- **Danh muc co dien / nang cao**: dropdown "Co dien" (Affine, Thay the, Caesar) va "Nang cao" (Vigenere, Playfair, Hill) — moi muc la 1 menu xo xuong
+- **Noi dung giai thich tung buoc**: bai toan + cach tinh tung ky tu + ket qua o 1 o lon
+- **Nut Huong dan** cho tung loai ma (phim F1 / menu Huong dan)
+- **Cai dat**: doi giao dien sang/toi thoi diem, About ghi ro quyen tac gia
+- **Brute-force**: Affine (312 khoa) va Caesar (25 shift) voi goi y chi-square
+- **Do tep tin**: mo tep `.txt` vao van ban dau vao, xuat bai toan + giai thich ra tep
+- **Sao chep vao clipboard**
+- **Bo dau tieng Viet**: chuyen "chao" thanh "chao" truoc khi ma hoa
+- **Phan tich tan suat**: dem tan so ky tu trong ban ma, goi y e/t
+- **Tao key ngau nhien** cho ma Thay the
+- **Chi-square**: Caesar brute-force tu dong goi y shift dung nhat
+
+## Yeu cau
+
+- Windows 10/11 (64-bit)
+- Khong can Python hay thu vien nao khac
+
+## Ghi chu
+
+- Repo nay luu **ban build san** de tai va chay ngay.
+- Ma nguon khong nam trong repo nay.
