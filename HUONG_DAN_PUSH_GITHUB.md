@@ -1,41 +1,59 @@
-# Huong dan dua repo len GitHub
+# Huong dan phat hanh len GitHub
 
-Repo da duoc commit san o nhanh `main`. Ban chi can tao repo tren GitHub roi push.
+Repo hien tai: https://github.com/hiyake-20-06/toolMaHoa-local
 
-## 1. Tao repo tren GitHub
-
-- Vao https://github.com/new
-- Dat ten repo, vi du: `ToolMaHoa`
-- **Khong** tick "Add a README file", "Add .gitignore", "Choose a license" (repo da co san)
-- Bam **Create repository**
-
-## 2. Them remote va push
-
-Mo PowerShell tai thu muc nay (`D:\push-githud\project-1\ToolMaHoa`) va chay:
+## 1. Push thay doi
 
 ```powershell
-git remote add origin https://github.com/<username>/ToolMaHoa.git
-git branch -M main
-git push -u origin main
+git add -A
+git commit -m "Mo ta thay doi"
+git push
 ```
 
-Thay `<username>` bang tai khoan GitHub cua ban.
-
-## 3. Neu dung GitHub CLI (tien hon)
+## 2. Tao file zip phat hanh
 
 ```powershell
-gh repo create ToolMaHoa --public --source . --remote origin --push
+.\make-release.ps1
+```
+
+File duoc tao tai:
+
+```
+release\ToolMaHoa-v1.0.0-win64.zip
+```
+
+Zip gom: `ToolMaHoa/ToolMaHoa.exe`, `ToolMaHoa/_internal/`, `ToolMaHoa/README.md`.
+
+Thu muc `release/` da nam trong `.gitignore` nen zip **khong** bi commit vao repo.
+Chi upload file nay len GitHub Releases.
+
+## 3. Tao Release tren GitHub
+
+### Cach 1: giao dien web
+
+1. Vao repo > **Releases** > **Draft a new release**
+2. **Choose a tag** > go `v1.0.0` > **Create new tag**
+3. Dat tieu de, vi du `Tool Ma Hoa v1.0.0`
+4. Keo file `release\ToolMaHoa-v1.0.0-win64.zip` vao muc **Attach binaries**
+5. Bam **Publish release**
+
+### Cach 2: GitHub CLI (neu da cai `gh`)
+
+```powershell
+gh release create v1.0.0 "release\ToolMaHoa-v1.0.0-win64.zip" `
+  --title "Tool Ma Hoa v1.0.0" `
+  --notes "Ban build san cho Windows 64-bit"
 ```
 
 ## Luu y
 
 - Neu GitHub hoi dang nhap, dung Personal Access Token (PAT) thay cho mat khau.
-- Kiem tra remote hien tai:
+- Kiem tra remote:
   ```powershell
   git remote -v
   ```
-- Doi remote neu nhap sai:
+- File `ToolMaHoa.exe` va cac DLL trong `_internal` la binary, da khai bao trong `.gitattributes`.
+- Moi lan ra ban moi, doi `-Version` khi tao zip:
   ```powershell
-  git remote set-url origin https://github.com/<username>/ToolMaHoa.git
+  .\make-release.ps1 -Version 1.0.1
   ```
-- File `ToolMaHoa.exe` va cac DLL trong `_internal` la file binary, da duoc khai bao trong `.gitattributes`.

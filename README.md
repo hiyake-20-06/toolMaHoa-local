@@ -21,14 +21,30 @@ Ban build san cho Windows, **khong can cai Python**.
 
 ```
 ToolMaHoa/
-├─ ToolMaHoa.exe     # chuong trinh chinh (GUI)
-├─ _internal/        # runtime Python + Tk, BAT BUOC phai giu
+├─ ToolMaHoa.exe       # chuong trinh chinh (GUI)
+├─ _internal/          # runtime Python + Tk, BAT BUOC phai giu
+├─ make-release.ps1    # tao file zip de phat hanh
+├─ release/            # chua file zip phat hanh (khong commit)
 ├─ README.md
 ├─ .gitignore
 └─ .gitattributes
 ```
 
 Khong duoc di chuyen `ToolMaHoa.exe` ra khoi thu muc hoac xoa `_internal`, neu khong tool se khong chay.
+
+## Dong goi ban phat hanh (Release)
+
+Tao file zip gom `ToolMaHoa.exe` + `_internal` + `README.md`:
+
+```powershell
+.\make-release.ps1
+```
+
+Ket qua: `release\ToolMaHoa-v1.0.0-win64.zip`.
+
+De phat hanh tren GitHub: vao **Releases > Draft a new release**, tao tag (vi du `v1.0.0`)
+va upload file zip vua tao. Thu muc `release/` da duoc bo qua trong `.gitignore`,
+nen file zip khong bi commit vao repo.
 
 ## Cac he ma ho tro
 
